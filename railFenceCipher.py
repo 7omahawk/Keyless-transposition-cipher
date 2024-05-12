@@ -26,7 +26,6 @@ def decryption(userInput):
     
     userInput = userInput.replace(" ", "")
     sizeOfInput = len(userInput)
-    print(sizeOfInput)
 
     divid = math.ceil(sizeOfInput / 2)
     temp = divid   # the temp variable is use for the number of loop running
