@@ -3,6 +3,7 @@
 import sys
 import math
 
+
 # the encryption function of rail fence cipher
 def encryption(userInput):
 
@@ -14,7 +15,7 @@ def encryption(userInput):
     for i in range(sizeOfInput):
         if i % 2 == 0:
             firstRow = firstRow + userInput[i]
-        else: 
+        else:
             secondRow = secondRow + userInput[i]
 
     cipher = firstRow + secondRow
@@ -23,31 +24,35 @@ def encryption(userInput):
 
 # the encryption function of rail fence cipher
 def decryption(userInput):
-    
+
     userInput = userInput.replace(" ", "")
     sizeOfInput = len(userInput)
 
-    divid = math.ceil(sizeOfInput / 2)
-    temp = divid   # the temp variable is use for the number of loop running
+    divide = math.ceil(sizeOfInput / 2)
+    temp = divide  # the temp variable is use for the number of loop running
     plaintext = ""
 
-    if sizeOfInput % 2 == 0:   # when the length of input size is even this condition will work
+    if (
+        sizeOfInput % 2 == 0
+    ):  # when the length of input size is even this condition will work
         for i in range(temp):
             plaintext = plaintext + userInput[i]
             if i < temp:
-                plaintext = plaintext + userInput[divid]
-            divid += 1
+                plaintext = plaintext + userInput[divide]
+            divide += 1
     else:
-        for i in range(temp):  # when the length of input size is odd this condition will work
+        for i in range(
+            temp
+        ):  # when the length of input size is odd this condition will work
             plaintext = plaintext + userInput[i]
-            if i < temp-1:
-                plaintext = plaintext + userInput[divid]
-            divid += 1
-    
+            if i < temp - 1:
+                plaintext = plaintext + userInput[divide]
+            divide += 1
+
     print(f"The decrypted message is: {plaintext}")
 
 
-while(True):
+while True:
     print("Enter your choice(Number): ")
     print("1. Encryption: ")
     print("2. Decryption: ")
@@ -69,4 +74,4 @@ while(True):
         else:
             print("Input should be a number from 1 to 3")
 
-    choice(number) 
+    choice(number)
